@@ -2,23 +2,10 @@
 <html>
 <head>
     <title>Flask Collaborative Text Editor</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-    <script>
-        var socket = io();
-
-        var textBox = document.getElementById('text-box');
-        textBox.addEventListener('input', function() {
-            var text = textBox.value;
-            socket.emit('text_change', {'text': text});
-        });
-
-        socket.on('update_text', function(data) {
-            textBox.value = data['text'];
-        });
-    </script>
 </head>
 <body>
     <h1>Flask Collaborative Text Editor</h1>
+    <button onclick="window.location='/new'">New Session</button>
     <textarea id="text-box" cols="80" rows="25"></textarea>
 </body>
 </html>
